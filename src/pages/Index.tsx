@@ -39,9 +39,11 @@ const Index = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background pb-20">
-      <div className="container mx-auto px-4 py-6 max-w-md">
-        {renderActiveView()}
+    <div className="mobile-full-height bg-background flex flex-col ios-safe-left ios-safe-right">
+      <div className="flex-1 overflow-auto ios-safe-top pb-safe-bottom">
+        <div className="container mx-auto px-4 py-6 max-w-md h-full">
+          {renderActiveView()}
+        </div>
       </div>
       <Navigation activeTab={activeTab} onTabChange={setActiveTab} />
     </div>

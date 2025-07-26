@@ -40,9 +40,9 @@ const StatsView = () => {
   const todaysTotal = todaysSessions.reduce((sum, session) => sum + session.duration, 0);
 
   return (
-    <div className="space-y-6 animate-fade-in">
+    <div className="h-full flex flex-col space-y-4 md:space-y-6 animate-fade-in overflow-auto">
       {/* Overview Cards */}
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-2 gap-3 md:gap-4">
         <Card className="p-4 bg-gradient-secondary border-border shadow-card">
           <div className="flex items-center gap-3 mb-2">
             <Clock className="w-5 h-5 text-primary" />

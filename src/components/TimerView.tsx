@@ -161,9 +161,9 @@ const TimerView = ({ onStatsUpdate }: TimerViewProps) => {
   }, [seconds, sessionNote, settings.streakThreshold, onStatsUpdate, toast, goalReached]);
 
   return (
-    <div className="space-y-6 animate-fade-in">
+    <div className="h-full flex flex-col space-y-4 md:space-y-6 animate-fade-in overflow-auto">
       {/* Today's Progress */}
-      <Card className="p-6 bg-gradient-secondary border-border shadow-card">
+      <Card className="p-4 md:p-6 bg-gradient-secondary border-border shadow-card">
         <div className="flex items-center gap-3 mb-4">
           <Target className="w-5 h-5 text-primary" />
           <h3 className="text-lg font-semibold">Today's Progress</h3>
@@ -191,20 +191,21 @@ const TimerView = ({ onStatsUpdate }: TimerViewProps) => {
       </Card>
 
       {/* Main Timer */}
-      <Card className={`p-8 text-center bg-gradient-secondary border-border shadow-card transition-smooth ${
-        isRunning ? 'timer-glow pulse-reading' : ''
-      }`}>
+      <div className="flex-1 flex items-center justify-center">
+        <Card className={`w-full p-6 md:p-8 text-center bg-gradient-secondary border-border shadow-card transition-smooth ${
+          isRunning ? 'timer-glow pulse-reading' : ''
+        }`}>
         <div className="space-y-6">
           {/* Timer display */}
           <div className="relative">
-            <div className={`text-6xl font-mono font-bold ${
+            <div className={`text-4xl md:text-6xl font-mono font-bold ${
               isRunning ? 'text-primary' : 'text-foreground'
             } transition-smooth`}>
               {formatTimeDetailed(seconds)}
             </div>
             
             {isRunning && (
-              <div className="absolute inset-0 text-6xl font-mono font-bold text-primary opacity-20 blur-sm">
+              <div className="absolute inset-0 text-4xl md:text-6xl font-mono font-bold text-primary opacity-20 blur-sm">
                 {formatTimeDetailed(seconds)}
               </div>
             )}
@@ -219,14 +220,14 @@ const TimerView = ({ onStatsUpdate }: TimerViewProps) => {
           </div>
 
           {/* Controls */}
-          <div className="flex gap-4 justify-center">
+          <div className="flex gap-3 md:gap-4 justify-center">
             {!isRunning ? (
               <Button
                 onClick={handleStart}
                 size="lg"
-                className="bg-gradient-primary hover:scale-105 transition-bounce shadow-premium"
+                className="bg-gradient-primary hover:scale-105 transition-bounce shadow-premium px-6 md:px-8"
               >
-                <Play className="w-5 h-5 mr-2" />
+                <Play className="w-4 h-4 md:w-5 md:h-5 mr-2" />
                 Start Reading
               </Button>
             ) : (
@@ -235,9 +236,9 @@ const TimerView = ({ onStatsUpdate }: TimerViewProps) => {
                   onClick={handlePause}
                   variant="secondary"
                   size="lg"
-                  className="transition-bounce hover:scale-105"
+                  className="transition-bounce hover:scale-105 px-4 md:px-6"
                 >
-                  <Pause className="w-5 h-5 mr-2" />
+                  <Pause className="w-4 h-4 md:w-5 md:h-5 mr-2" />
                   Pause
                 </Button>
                 
@@ -245,19 +246,20 @@ const TimerView = ({ onStatsUpdate }: TimerViewProps) => {
                   onClick={handleStop}
                   variant="outline"
                   size="lg"
-                  className="transition-bounce hover:scale-105"
+                  className="transition-bounce hover:scale-105 px-4 md:px-6"
                 >
-                  <Square className="w-5 h-5 mr-2" />
+                  <Square className="w-4 h-4 md:w-5 md:h-5 mr-2" />
                   Complete
                 </Button>
               </>
             )}
           </div>
         </div>
-      </Card>
+        </Card>
+      </div>
 
       {/* Current Streak */}
-      <Card className="p-6 bg-gradient-secondary border-border shadow-card">
+      <Card className="p-4 md:p-6 bg-gradient-secondary border-border shadow-card">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Flame className="w-6 h-6 text-primary" />

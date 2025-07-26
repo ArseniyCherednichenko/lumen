@@ -18,7 +18,7 @@ const SplashView = ({ onComplete }: SplashViewProps) => {
   }, [onComplete]);
 
   return (
-    <div className={`fixed inset-0 z-50 bg-gradient-secondary flex items-center justify-center transition-opacity duration-500 ${
+    <div className={`fixed inset-0 z-50 bg-gradient-secondary flex items-center justify-center transition-opacity duration-500 ios-safe-top ios-safe-bottom ios-safe-left ios-safe-right ${
       isVisible ? 'opacity-100' : 'opacity-0'
     }`}>
       {/* Animated background gradient */}

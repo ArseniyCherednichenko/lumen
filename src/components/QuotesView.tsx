@@ -27,11 +27,11 @@ const QuotesView = () => {
   };
 
   return (
-    <div className="space-y-6 animate-fade-in">
+    <div className="h-full flex flex-col space-y-4 md:space-y-6 animate-fade-in overflow-auto">
       {/* Header */}
-      <div className="text-center space-y-2">
-        <h2 className="text-2xl font-bold">Literary Inspiration</h2>
-        <p className="text-muted-foreground">
+      <div className="text-center space-y-2 pt-4">
+        <h2 className="text-xl md:text-2xl font-bold">Literary Inspiration</h2>
+        <p className="text-muted-foreground text-sm md:text-base">
           Words of wisdom from the greatest minds
         </p>
       </div>
