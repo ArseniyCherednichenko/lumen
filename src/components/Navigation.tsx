@@ -15,8 +15,8 @@ const Navigation = ({ activeTab, onTabChange }: NavigationProps) => {
   ];
 
   return (
-    <nav className="bg-card border-t border-border z-40 ios-safe-bottom">
-      <div className="flex justify-around items-center h-16 px-4 safe-area-padding">
+    <nav className="bg-card border-t border-border z-40 safe-area-bottom">
+      <div className="flex justify-around items-center navigation-height px-4">
         {tabs.map((tab) => {
           const Icon = tab.icon;
           const isActive = activeTab === tab.id;
@@ -26,13 +26,13 @@ const Navigation = ({ activeTab, onTabChange }: NavigationProps) => {
               key={tab.id}
               onClick={() => onTabChange(tab.id)}
               className={cn(
-                "flex flex-col items-center gap-1 p-2 rounded-lg transition-all duration-200",
+                "flex flex-col items-center gap-1 p-2 rounded-lg transition-all duration-200 min-w-[3rem]",
                 isActive 
                   ? "text-primary bg-primary/10" 
                   : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
               )}
             >
-              <Icon className={cn("w-6 h-6", isActive && "animate-pulse")} />
+              <Icon className={cn("w-5 h-5 md:w-6 md:h-6", isActive && "animate-pulse")} />
               <span className="text-xs font-medium">{tab.label}</span>
             </button>
           );

@@ -39,13 +39,13 @@ const Index = () => {
   }
 
   return (
-    <div className="mobile-full-height bg-background flex flex-col ios-safe-left ios-safe-right">
-      <div className="flex-1 overflow-auto ios-safe-top pb-safe-bottom">
-        <div className="container mx-auto px-4 py-6 max-w-md h-full">
+    <div className="app-container bg-background">
+      <div className="mobile-content">
+        <div className="content-area">
           {renderActiveView()}
         </div>
+        <Navigation activeTab={activeTab} onTabChange={setActiveTab} />
       </div>
-      <Navigation activeTab={activeTab} onTabChange={setActiveTab} />
     </div>
   );
 };
